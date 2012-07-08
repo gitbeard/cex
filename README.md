@@ -1,0 +1,4 @@
+cex
+===
+
+cex inventory
