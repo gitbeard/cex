@@ -1,0 +1,4 @@
+rails generate scaffold DailyInventory item_number:integer location_id:integer datetime:datetime quantity:integer file_id:integer
+rails generate scaffold FileInfo filename:string date_modified:datetime date_uploaded:datetime
+rails generate scaffold Item alt_item_number:string item_description:string part_number:string part_length:string
+rails generate scaffold ViewDistinctPartNumber part_number:string

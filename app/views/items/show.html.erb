@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<%= high_chart("my_id", @h) %>
+
+<p>
+  <b>Daily Inventory?:</b>
+  <% @inventory = @daily_inventories.where("item_number = ?", @item.item_number) %>
+  <%# @inventory.quantity %>
+  <% @inventory.each do |inv| %>
+    <%# debug inv.quantity %>
+    <%= inv.quantity %>
+  <% end %>
+</p>
+
+<p>
+  <b>Alt item number:</b>
+  <%= @item.alt_item_number %>
+</p>
+
+<p>
+  <b>Item description:</b>
+  <%= @item.item_description %>
+</p>
+
+<p>
+  <b>Part number:</b>
+  <%= @item.part_number %>
+</p>
+
+<p>
+  <b>Part length:</b>
+  <%= @item.part_length %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

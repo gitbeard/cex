@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cex</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :high_charts %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<b>View: </b>
+<%= link_to 'Items', items_path %>
+<%= link_to 'Daily Inventories', daily_inventories_path %>
+<%= link_to 'File Infos', file_infos_path %>
+<%= link_to 'Excel Replica', items_xl_rep_path %>
+
+<%= yield %>
+
+</body>
+</html>

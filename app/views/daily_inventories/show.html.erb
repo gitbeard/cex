@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item number:</b>
+  <%= @daily_inventory.item_number %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @daily_inventory.location_id %>
+</p>
+
+<p>
+  <b>Datetime:</b>
+  <%= @daily_inventory.datetime %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @daily_inventory.quantity %>
+</p>
+
+<p>
+  <b>File:</b>
+  <%= @daily_inventory.file_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_daily_inventory_path(@daily_inventory) %> |
+<%= link_to 'Back', daily_inventories_path %>

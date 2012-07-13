@@ -1,0 +1,29 @@
+<%= form_for(@file_info) do |f| %>
+  <% if @file_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@file_info.errors.count, "error") %> prohibited this file_info from being saved:</h2>
+
+      <ul>
+      <% @file_info.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :filename %><br />
+    <%= f.text_field :filename %>
+  </div>
+  <div class="field">
+    <%= f.label :date_modified %><br />
+    <%= f.datetime_select :date_modified %>
+  </div>
+  <div class="field">
+    <%= f.label :date_uploaded %><br />
+    <%= f.datetime_select :date_uploaded %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

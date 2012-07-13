@@ -1,0 +1,27 @@
+<h1>Listing file_infos</h1>
+
+<table>
+  <tr>
+    <th>Filename</th>
+    <th>Date modified</th>
+    <th>Date uploaded</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @file_infos.each do |file_info| %>
+  <tr>
+    <td><%= file_info.filename %></td>
+    <td><%= file_info.date_modified %></td>
+    <td><%= file_info.date_uploaded %></td>
+    <td><%= link_to 'Show', file_info %></td>
+    <td><%= link_to 'Edit', edit_file_info_path(file_info) %></td>
+    <td><%= link_to 'Destroy', file_info, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New File info', new_file_info_path %>

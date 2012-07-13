@@ -1,0 +1,116 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+  	<th></th>
+    <th colspan="10">Multimode 62.5/125</th>
+    <th colspan="8">Multimode 62.5/125</th>
+    <th colspan="7">Singlemode 8.5/125</th>
+  </tr>
+  <tr>
+  	<th></th>
+    <th colspan="3">DX 3.0</th>
+    <th colspan="3">MTRJ DX 2.0</th>
+    <th colspan="4">DX 2.0</th>
+    <th colspan="5">DX 2.0</th>
+    <th colspan="3">DX 3.0</th>
+    <th colspan="3">DX 3.0</th>
+    <th colspan="4">DX 2.0</th>
+  </tr>
+  <tr>
+  	<th>L</th>
+    <th>SC/SC</th>
+    <th>ST/ST</th>
+    <th>ST/SC</th>
+    <th>SC</th>
+    <th>ST</th>
+    <th>MTRJ</th>
+    <th>LC/SC</th>
+    <th>LC/ST</th>
+    <th>LC/LC</th>
+    <th>LC/M</th>
+    <th>LC/SC</th>
+    <th>LC/ST</th>
+    <th>LC/LC</th>
+    <th>SC/M</th>
+    <th>LC/M</th>
+    <th>SC/SC</th>
+    <th>ST/ST</th>
+    <th>ST/SC</th>
+    <th>SC/SC</th>
+    <th>ST/ST</th>
+    <th>ST/SC</th>
+    <th>LC/SC</th>
+    <th>LC/ST</th>
+    <th>LC/LC</th>
+    <th>SC/SC</th>
+  </tr>
+  <% lengths = ["01M","02M","03M","04M","05M","06M","07M","08M","09M","10M","12M","15M","20M","25M","30M","40M"] %>
+  <% lengths.each do |length| %>
+  
+    <tr>
+      <td>
+      	<%= length %>
+      </td>
+  	  <td>
+  		  <% @item = @items.where("part_number = ? AND part_length = ?", "FSPDB22", length) %>
+  		  <% @item.each do |i| %>
+  		    <%= i.alt_item_number %>
+  		    <%= ", " %>
+  		    <%= i.item_number %>
+  		    <%= ", " %>
+  		    <% @inventory = @daily_inventories.where("item_number = ?", i.item_number).order("datetime DESC").limit(1) %>
+  		    <% @inventory.each do |inv| %>
+  		      <%= inv.quantity %>
+  		    <% end %>
+  		  <% end %>
+  	  </td>
+    </tr>
+  
+  <% end %>
+
+
+
+
+
+</table>
+
+<br />
+<table>
+  <tr>
+  	<th></th>
+    <th>Multimode 62.5/125</th>
+    <th>Multimode 62.5/125</th>
+    <th>Singlemode 8.5/125</th>
+  </tr>
+  <tr>
+  	<td></td>
+  	<td>
+  <table>
+      <tr>
+  	    <th></th>
+        <th>DX 3.0</th>
+        <th>MTRJ DX 2.0</th>
+        <th>DX 2.0</th>
+      </tr>
+    </table>
+    </td><td>
+    <table>
+      <tr>
+        <th>DX 2.0</th>
+        <th>DX 3.0</th>
+      </tr>
+    </table>
+    </td><td>
+    <table>
+      <tr>
+        <th>DX 3.0</th>
+        <th>DX 2.0</th>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+  
+
+

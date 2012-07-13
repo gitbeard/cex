@@ -1,0 +1,28 @@
+<h1>Listing daily_inventories</h1>
+
+<table>
+  <tr>
+    <th>Item number</th>
+    <th>Location</th>
+    <th>Datetime</th>
+    <th>Quantity</th>
+    <th>File</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @daily_inventories.each do |daily_inventory| %>
+  <tr>
+    <td><%= daily_inventory.item_number %></td>
+    <td><%= daily_inventory.location_id %></td>
+    <td><%= daily_inventory.datetime %></td>
+    <td><%= daily_inventory.quantity %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Daily inventory', new_daily_inventory_path %>

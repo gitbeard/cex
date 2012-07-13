@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_number: 1
+  location_id: 1
+  datetime: 2012-06-09 21:31:27
+  quantity: 1
+  file_id: 1
+
+two:
+  item_number: 1
+  location_id: 1
+  datetime: 2012-06-09 21:31:27
+  quantity: 1
+  file_id: 1

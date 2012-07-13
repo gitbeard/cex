@@ -1,0 +1,33 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Alt item number</th>
+    <th>Item description</th>
+    <th>Part number</th>
+    <th>Part length</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.alt_item_number %></td>
+    <td><%= item.item_description %></td>
+    <td><%= item.part_number %></td>
+    <td><%= item.part_length %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Show All Lengths', show_all_lengths_item_path(item) %></td>
+    <td><%= link_to 'Show All Lengths Change', show_all_lengths_change_item_path(item) %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

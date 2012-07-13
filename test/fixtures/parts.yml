@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  part_number: MyString
+  description: MyString
+  column: 1
+  column_header: MyString
+  column_color: MyString
+
+two:
+  part_number: MyString
+  description: MyString
+  column: 1
+  column_header: MyString
+  column_color: MyString

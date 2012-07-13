@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Part number:</b>
+  <%= @part.part_number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @part.description %>
+</p>
+
+<p>
+  <b>Column:</b>
+  <%= @part.column %>
+</p>
+
+<p>
+  <b>Column header:</b>
+  <%= @part.column_header %>
+</p>
+
+<p>
+  <b>Column color:</b>
+  <%= @part.column_color %>
+</p>
+
+
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>
