@@ -1,7 +1,15 @@
 <h1>Listing items</h1>
 
 
-<a href="" onclick="show('altitemnumber'); return false;">alt_item_number</a>
+
+
+<form id="test">
+<input id="ca" type="radio" name="s" value="a" /> Part Number<br />
+<input id="cb" type="radio" name="s" value="b" /> WASP Item Number<br />
+<input id="cc" type="radio" name="s" value="c" /> Inventory Quantity<br />
+</form>
+
+
 
 <table>
   <tr>
@@ -45,7 +53,7 @@
       <% @all_parts.each do |part| %>
   	    <td bgcolor="#<%= part.column_color %>">
   	      <% @item = @items.where("part_number = ? AND part_length = ?", part.part_number, length) %>
-  	  
+  	      
   		  <% @item.each do |i| %>
   		    
   		    <span id="alt_item_number"><%= i.alt_item_number %></span>
@@ -65,8 +73,7 @@
   	  
     </tr>
   
-  <% end %>
-
+  <% end %>  
 
 
 

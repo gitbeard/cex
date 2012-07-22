@@ -22,7 +22,7 @@ background-color: #9999FF;
 th, td
 {
 border: 1px solid black;
-background-color: white;
+/*background-color: white; I don't want this for excel replica table but I do for the rest */
 }
 
 
