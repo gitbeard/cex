@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Po number:</b>
+  <%= @purchase_order.po_number %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @purchase_order.company_id %>
+</p>
+
+<p>
+  <b>Date placed:</b>
+  <%= @purchase_order.date_placed %>
+</p>
+
+<p>
+  <b>Date ready:</b>
+  <%= @purchase_order.date_ready %>
+</p>
+
+<p>
+  <b>Date shipped:</b>
+  <%= @purchase_order.date_shipped %>
+</p>
+
+<p>
+  <b>Date received:</b>
+  <%= @purchase_order.date_received %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_order_path(@purchase_order) %> |
+<%= link_to 'Back', purchase_orders_path %>

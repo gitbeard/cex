@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  po_id: 1
+  line_number: 1
+  item_number: 1
+  quantity: 1
+  unit_price: 1.5
+  extended_price: 1.5
+
+two:
+  po_id: 1
+  line_number: 1
+  item_number: 1
+  quantity: 1
+  unit_price: 1.5
+  extended_price: 1.5

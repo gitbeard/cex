@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  po_number: 1
+  company_id: 1
+  date_placed: 2012-07-25 01:09:16
+  date_ready: 2012-07-25 01:09:16
+  date_shipped: 2012-07-25 01:09:16
+  date_received: 2012-07-25 01:09:16
+
+two:
+  po_number: 1
+  company_id: 1
+  date_placed: 2012-07-25 01:09:16
+  date_ready: 2012-07-25 01:09:16
+  date_shipped: 2012-07-25 01:09:16
+  date_received: 2012-07-25 01:09:16

@@ -1,0 +1,33 @@
+<h1>Listing purchase_order_items</h1>
+
+<table>
+  <tr>
+    <th>Po</th>
+    <th>Line number</th>
+    <th>Item number</th>
+    <th>Quantity</th>
+    <th>Unit price</th>
+    <th>Extended price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchase_order_items.each do |purchase_order_item| %>
+  <tr>
+    <td><%= purchase_order_item.po_id %></td>
+    <td><%= purchase_order_item.line_number %></td>
+    <td><%= purchase_order_item.item_number %></td>
+    <td><%= purchase_order_item.quantity %></td>
+    <td><%= purchase_order_item.unit_price %></td>
+    <td><%= purchase_order_item.extended_price %></td>
+    <td><%= link_to 'Show', purchase_order_item %></td>
+    <td><%= link_to 'Edit', edit_purchase_order_item_path(purchase_order_item) %></td>
+    <td><%= link_to 'Destroy', purchase_order_item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase order item', new_purchase_order_item_path %>

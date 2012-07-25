@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Po:</b>
+  <%= @purchase_order_item.po_id %>
+</p>
+
+<p>
+  <b>Line number:</b>
+  <%= @purchase_order_item.line_number %>
+</p>
+
+<p>
+  <b>Item number:</b>
+  <%= @purchase_order_item.item_number %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @purchase_order_item.quantity %>
+</p>
+
+<p>
+  <b>Unit price:</b>
+  <%= @purchase_order_item.unit_price %>
+</p>
+
+<p>
+  <b>Extended price:</b>
+  <%= @purchase_order_item.extended_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_order_item_path(@purchase_order_item) %> |
+<%= link_to 'Back', purchase_order_items_path %>

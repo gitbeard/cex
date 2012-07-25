@@ -1,4 +1,10 @@
 Cex::Application.routes.draw do
+  resources :companies
+
+  resources :purchase_order_items
+
+  resources :purchase_orders
+
   resources :parts
 
   resources :items do
