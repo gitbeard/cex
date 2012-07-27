@@ -16,6 +16,16 @@
 </p>
 
 <p>
+  <b>Part number:</b>
+  <%= @purchase_order_item.part_number %>
+</p>
+
+<p>
+  <b>Item description:</b>
+  <%= @purchase_order_item.part_description %>
+</p>
+
+<p>
   <b>Quantity:</b>
   <%= @purchase_order_item.quantity %>
 </p>
@@ -30,6 +40,10 @@
   <%= @purchase_order_item.extended_price %>
 </p>
 
+<p>
+  <b>Status:</b>
+  <%= @purchase_order_item.status %>
+</p>
 
 <%= link_to 'Edit', edit_purchase_order_item_path(@purchase_order_item) %> |
 <%= link_to 'Back', purchase_order_items_path %>

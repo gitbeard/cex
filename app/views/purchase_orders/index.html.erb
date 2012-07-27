@@ -4,6 +4,10 @@
   <tr>
     <th>Po number</th>
     <th>Company</th>
+    <th>Line Items</th>
+    <th>Total Items</th>
+    <th>Total Price</th>
+    <th>Status</th>
     <th>Date placed</th>
     <th>Date ready</th>
     <th>Date shipped</th>
@@ -17,6 +21,10 @@
   <tr>
     <td><%= purchase_order.po_number %></td>
     <td><%= purchase_order.company_id %></td>
+    <td><%= purchase_order.line_items %></td>
+    <td><%= purchase_order.total_items %></td>
+    <td><%= purchase_order.total_price %></td>
+    <td><%= purchase_order.status %></td>
     <td><%= purchase_order.date_placed %></td>
     <td><%= purchase_order.date_ready %></td>
     <td><%= purchase_order.date_shipped %></td>

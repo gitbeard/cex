@@ -1,3 +1,11 @@
+notes
+-----
+rails db:migrate:up VERSION=20080906120000
+
+
+
+original tables
+---------------
 rails generate scaffold DailyInventory item_number:integer location_id:integer datetime:datetime quantity:integer file_id:integer
 rails generate scaffold FileInfo filename:string date_modified:datetime date_uploaded:datetime
 rails generate scaffold Item alt_item_number:string item_description:string part_number:string part_length:string
@@ -9,3 +17,14 @@ new tables
 rails generate scaffold PurchaseOrders po_number:integer company_id:integer date_placed:datetime date_ready:datetime date_shipped:datetime date_received:datetime
 rails generate scaffold PurchaseOrderItems po_id:integer line_number:integer item_number:integer quantity:integer unit_price:float extended_price:float
 rails generate scaffold Company name:string
+
+
+modified tables
+---------------
+rails g migration add_line_items_to_purchase_orders line_items:integer total_items:integer total_price:float status:integer
+rails g migration add_part_number_to_purchase_order_items part_number:string part_description:string status:integer
+
+
+
+
+
