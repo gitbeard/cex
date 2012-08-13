@@ -15,6 +15,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @purchase_orders.each do |purchase_order| %>
@@ -32,6 +33,7 @@
     <td><%= link_to 'Show', purchase_order %></td>
     <td><%= link_to 'Edit', edit_purchase_order_path(purchase_order) %></td>
     <td><%= link_to 'Destroy', purchase_order, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Update Item Numbers', get_item_numbers_purchase_order_path(purchase_order) %></td>
   </tr>
 <% end %>
 </table>

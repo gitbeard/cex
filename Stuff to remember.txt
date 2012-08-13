@@ -1,0 +1,15 @@
+Part numbers, FSPDA23-01M and FSPDA32-01M are the same item, need to figure out elegant solution, or just extra column in item table.
+
+Make a bar graph for the inventory levels, WIPs and Transits.
+
+Totalize WIPs across PO's, and click on individual ones for more info?
+
+Use comma and 2 decimals on Total Price column for PO Listing.
+
+Figure out Company selection, status selection, date selections.
+
+Speed up items list and excel replica list.  Perhaps render the list once on server whenver updated, then send RAW html to everyone else.
+
+Show Item info when hovering in Excel Table.  Click item in excel table and go to item's show page.
+
+Update the show page for each part number (all lengths).

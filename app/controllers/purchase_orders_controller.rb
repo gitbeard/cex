@@ -80,4 +80,45 @@ class PurchaseOrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # Fill in item_numbers by looking up part_numbers
+  # Totalize the number of line items, quantities, price save in PO table
+  def get_item_numbers
+    @purchase_order = PurchaseOrder.find(params[:id])
+    @purchase_order.id
+    @po_item = PurchaseOrderItem
+    @items = Item
+    @po_items = @po_item.where("po_id = ? AND item_number = 0", @purchase_order.id)
+    
+    @po_items.each do |i|
+      @some = @items.where("alt_item_number = ?", i.part_number)
+      @some.each do |s|
+        i.item_number = s.item_number
+      end
+      i.save
+    end
+    
+    # Totalize section - make a separate task
+    @total_lines = 0
+    @total_items = 0
+    @total_price = 0
+    
+    @po_items = @po_item.where("po_id = ?", @purchase_order.id)
+    @po_items.each do |i|
+      @total_lines = @total_lines + 1
+      @total_items = @total_items + i.quantity
+      @total_price = @total_price + i.extended_price 
+    end
+    
+    @purchase_order.line_items = @total_lines
+    @purchase_order.total_items = @total_items
+    @purchase_order.total_price = @total_price
+    @purchase_order.save
+    
+    respond_to do |format|
+      format.html { redirect_to purchase_orders_url }
+      format.json { head :no_content }
+    end
+  end
+  
 end

@@ -1,16 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= high_chart("my_id", @h) %>
-
 <p>
-  <b>Daily Inventory?:</b>
-  <% @inventory = @daily_inventories.where("item_number = ?", @item.item_number) %>
-  <%# @inventory.quantity %>
-  <% @inventory.each do |inv| %>
-    <%# debug inv.quantity %>
-    <%= inv.quantity %>
-  <% end %>
+  <b>Item number:</b>
+  <%= @item.item_number %>
 </p>
+
 
 <p>
   <b>Alt item number:</b>
@@ -33,5 +27,42 @@
 </p>
 
 
+<% @ca_inv = @daily_inventories.where("item_number = ? AND location_id = ?", @item.item_number, 1).order("datetime DESC").limit(1) %>
+<% @ca_inv.each do |inv| %>
+<p>
+<b>CA Inventory:</b>
+<%= inv.quantity %>
+<% end %>
+</p>
+
+<% @nc_inv = @daily_inventories.where("item_number = ? AND location_id = ?", @item.item_number, 2).order("datetime DESC").limit(1) %>
+<% @nc_inv.each do |inv| %>
+<p>
+<b>NC Inventory:</b>
+<%= inv.quantity %>
+<% end %>
+</p>
+
+<p>
+<b>WIPs:</b>
+<% @wips = @purchase_order_items.where("item_number = ? AND status < 2", @item.item_number) %>
+<% @wips.each do |wip| %>
+<%= wip.quantity %>
+<% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
+
+<%= high_chart("my_id", @h) %>
+
+<p>
+  <b>Daily Inventory?:</b>
+  <% @inventory = @daily_inventories.where("item_number = ?", @item.item_number) %>
+  <%# @inventory.quantity %>
+  <% @inventory.each do |inv| %>
+    <%# debug inv.quantity %>
+    <%= inv.quantity %>
+  <% end %>
+</p>

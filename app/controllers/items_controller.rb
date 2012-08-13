@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @daily_inventories = DailyInventory
+    @purchase_order_items = PurchaseOrderItem
     inv_data = Array.new
     @inventory = @daily_inventories.where("item_number = ?", @item.item_number)
     @inventory.each do |inv|

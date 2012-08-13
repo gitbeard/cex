@@ -3,7 +3,9 @@ Cex::Application.routes.draw do
 
   resources :purchase_order_items
 
-  resources :purchase_orders
+  resources :purchase_orders do
+    get :get_item_numbers, on: :member
+  end
 
   resources :parts
 
@@ -18,6 +20,8 @@ Cex::Application.routes.draw do
   resources :daily_inventories
 
   match 'items_xl_rep' => 'items#xl_rep'
+  
+  #match 'get_item_numbers' => 'purchase_orders#get_item_numbers'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

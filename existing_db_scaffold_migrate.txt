@@ -1,6 +1,7 @@
 notes
 -----
 rails db:migrate:up VERSION=20080906120000
+add_column :purchase_order_items, :status, :integer, :after => :extended_price
 
 
 
