@@ -51,6 +51,13 @@
 <% end %>
 </p>
 
+<p>
+<b>Transit:</b>
+<% @transit = @purchase_order_items.where("item_number = ? AND status > 1 AND status < 8", @item.item_number) %>
+<% @transit.each do |t| %>
+<%= t.quantity %>
+<% end %>
+</p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

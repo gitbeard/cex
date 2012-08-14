@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
   def xl_rep
     @items = Item
     @daily_inventories = DailyInventory
+    @purchase_order_items = PurchaseOrderItem
     @parts = Part
     
     respond_to do |format|

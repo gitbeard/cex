@@ -6,7 +6,10 @@
 <form id="test">
 <input id="ca" type="radio" name="s" value="a" /> Part Number<br />
 <input id="cb" type="radio" name="s" value="b" /> WASP Item Number<br />
-<input id="cc" type="radio" name="s" value="c" /> Inventory Quantity<br />
+<input id="cc" type="radio" name="s" value="c" /> CA Inventory<br />
+<input id="cd" type="radio" name="s" value="d" /> NC Inventory<br />
+<input id="ce" type="radio" name="s" value="e" /> WIP<br />
+<input id="cf" type="radio" name="s" value="f" /> Transit<br />
 </form>
 
 
@@ -56,17 +59,41 @@
   	      
   		  <% @item.each do |i| %>
   		    
-  		    <span id="alt_item_number"><%= i.alt_item_number %></span>
-  		    <span id="item_number"><%= i.item_number %></span>
+  		    <span id="alt_item_number"><%= link_to i.alt_item_number, i %></span>
+  		    <span id="item_number"><%= link_to i.item_number, i %></span>
   		    
   		    <%# ", " %>
   		    
   		    <%# i.item_number %>
   		    <%# ", " %>
-  		    <% @inventory = @daily_inventories.where("item_number = ?", i.item_number).order("datetime DESC").limit(1) %>
+  		    <%# CA Inventory %>
+  		    <% @inventory = @daily_inventories.where("item_number = ? AND location_id = 1", i.item_number).order("datetime DESC").limit(1) %>
   		    <% @inventory.each do |inv| %>
-  		      <span id="inv_quantity"><%= inv.quantity %></span>
+  		      <span id="ca_inv"><%= link_to inv.quantity, i %></span>
   		    <% end %>
+  		    
+  		    <%# NC Inventory %>
+  		    <% @inventory = @daily_inventories.where("item_number = ? AND location_id = 2", i.item_number).order("datetime DESC").limit(1) %>
+  		    <% @inventory.each do |inv| %>
+  		      <span id="nc_inv"><%= link_to inv.quantity, i %></span>
+  		    <% end %>
+  		    
+  		    <%# WIPs %>
+  		    <% @wips = @purchase_order_items.where("item_number = ? AND status < 2", i.item_number) %>
+  		    <% @wip_total = 0 %>
+			<% @wips.each do |wip| %>
+			  <% @wip_total = @wip_total + wip.quantity %>
+			<% end %>
+			<span id="wip"><%= link_to @wip_total, i %></span>
+  		    
+  		    <%# Transit %>
+  		    <% @transit = @purchase_order_items.where("item_number = ? AND status > 1 AND status < 8", i.item_number) %>
+  		    <% @transit_total = 0 %>
+			<% @transit.each do |t| %>
+			  <% @transit_total = @transit_total + t.quantity %>
+			<% end %>
+			<span id="transit"><%= link_to @transit_total, i %></span>
+			
   		  <% end %>
   	    </td>
   	<% end %>
