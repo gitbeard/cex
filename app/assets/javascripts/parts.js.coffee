@@ -9,7 +9,10 @@ $ ->
   
   $('span#alt_item_number').show()
   $('span#item_number').hide()
-  $('span#inv_quantity').hide()
+  $('span#ca_inv').hide()
+  $('span#nc_inv').hide()
+  $('span#wip').hide()
+  $('span#transit').hide()
   
   change = (e) ->   
     if($("#ca").is(":checked"))
@@ -23,8 +26,23 @@ $ ->
       $('span#item_number').hide()
     
     if($("#cc").is(":checked"))
-      $('span#inv_quantity').show()
+      $('span#ca_inv').show()
     else
-      $('span#inv_quantity').hide()
+      $('span#ca_inv').hide()
     
+    if($("#cd").is(":checked"))
+      $('span#nc_inv').show()
+    else
+      $('span#nc_inv').hide()
+    
+    if($("#ce").is(":checked"))
+      $('span#wip').show()
+    else
+      $('span#wip').hide()
+      
+    if($("#cf").is(":checked"))
+      $('span#transit').show()
+    else
+      $('span#transit').hide()
+      
   $("#test").click(change)

@@ -8,8 +8,8 @@ Use comma and 2 decimals on Total Price column for PO Listing.
 
 Figure out Company selection, status selection, date selections.
 
-Speed up items list and excel replica list.  Perhaps render the list once on server whenver updated, then send RAW html to everyone else.
+Speed up items list and excel replica list.  Perhaps render the list once on server whenever updated, then send RAW html to everyone else.
 
-Show Item info when hovering in Excel Table.  Click item in excel table and go to item's show page.
+Show Item info when hovering in Excel Table.
 
 Update the show page for each part number (all lengths).
