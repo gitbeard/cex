@@ -1,0 +1,15 @@
+These are the files for importing the daily inventory Chris sends out, into the database for the rails website.
+
+This uses excel python tools xlutils which needs to be installed.
+
+Overview of operation:
+Files go in the RAW folder.
+The file info gets inserted into the file_infos table.
+The file get's openned in excel, and the CA_INV or NC_INV tab gets selected, and put into a new .csv file formatted for inserting into the database.
+The new .csv file is located in DATA\OUTPUT.
+The .csv file then gets imported into the database.
+Currently the .csv file is being moved into the Done folder, but it needs to automatically move into the CA or NC folder.
+
+When you import CA_INV, the location_id should be 1 in the make_inv_record function, and the ws_ind = ws_names["NC INV"] in the main function.
+When you import NC_INV, the location_id should be 2, and the ws_ind = ws_names["NC INV"]
+
